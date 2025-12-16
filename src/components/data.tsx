@@ -20,7 +20,7 @@ export const paymentMethods = [
     id: "visa",
     label: "Карта Visa/MasterCard",
     Visual: (
-      <div className="flex gap-4">
+      <div className="flex gap-2 md:gap-4">
         <MasterCardIcon className="w-10 h-10 mx-auto" />
         <VisaIcon className="w-10 h-10 mx-auto" />
       </div>
@@ -29,7 +29,11 @@ export const paymentMethods = [
   {
     id: "privat24",
     label: "Приват24",
-    Visual: <span className="font-bold text-xl text-white pt-1">Приват24</span>,
+    Visual: (
+      <span className="text-md md:text-xl text-white pt-2 md:pt-1">
+        Приват24
+      </span>
+    ),
   },
   {
     id: "terminal",

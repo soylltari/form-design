@@ -43,7 +43,7 @@
   }
 
   h1 {
-    @apply font-geometria-extrabold text-5xl;
+    @apply font-geometria-extrabold text-3xl md:text-5xl text-center;
   }
   h3 {
     @apply font-geometria;

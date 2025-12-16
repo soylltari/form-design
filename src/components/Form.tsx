@@ -21,9 +21,11 @@ export default function Form() {
   };
   return (
     <>
-      <button className="absolute text-3xl top-5 right-1/6">✕</button>
+      <button className="absolute text-xl md:text-3xl top-5 right-1/8 md:right-1/6">
+        ✕
+      </button>
 
-      <form className="flex flex-col items-center my-12 h-full bg-white mx-10 md:mx-52 py-12 px-16 shadow-md shadow-gray-500 rounded-xl">
+      <form className="flex flex-col items-center h-full bg-white mx-5 md:mx-52 my-12 py-12 px-8 md:px-16 shadow-md shadow-gray-500 rounded-xl">
         <h1>Заповніть форму</h1>
         <div className="mt-5">
           <button
@@ -39,9 +41,9 @@ export default function Form() {
             Юр. особа
           </button>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-52 gap-y-1 my-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-52 gap-y-1 my-10">
           <div>
-            <div className="flex gap-4">
+            <div className="flex flex-col md:flex-row md:gap-4">
               <Input
                 id="firstName"
                 type="firstName"
@@ -57,7 +59,7 @@ export default function Form() {
                 onChange={handleChange}
               />
             </div>
-            <div className="relative">
+            <div className="relative flex flex-col mb-1 md:mb-0 md:block">
               <Input
                 id="company"
                 type="company"
@@ -67,7 +69,7 @@ export default function Form() {
               />
               <button
                 type="button"
-                className="absolute left-full top-7 ml-4 text-sm text-blue-500 hover:text-blue-700 whitespace-nowrap transition-all"
+                className="self-start md:absolute left-full top-7 -mt-3 md:mt-0 md:ml-4 text-sm text-blue-500 hover:text-blue-700 whitespace-nowrap transition-all"
               >
                 + Логотип
               </button>
@@ -95,7 +97,7 @@ export default function Form() {
               value={formData.country}
               onChange={handleChange}
             />
-            <div className="flex gap-4">
+            <div className="flex flex-col md:flex-row md:gap-4">
               <Input
                 id="city"
                 type="city"
