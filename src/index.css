@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@tailwind utilities;
+
+@font-face {
+  font-family: "Geometria";
+  src: url("./assets/fonts/Geometria.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geometria-Bold";
+  src: url("./assets/fonts/Geometria-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geometria-ExtraBold";
+  src: url("./assets/fonts/Geometria-ExtraBold.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-geometria: "Geometria", sans-serif;
+  --font-geometria-bold: "Geometria-Bold", sans-serif;
+  --font-geometria-extrabold: "Geometria-ExtraBold", sans-serif;
+  --color-primary: #363b5d;
+  --color-secondary: #c5d5e6;
+  --color-accent: #9c5d9a;
+  --color-background: #8094b3;
+}
+
+@layer base {
+  body {
+    @apply font-geometria-bold h-screen text-primary bg-background;
+  }
+
+  h1 {
+    @apply font-geometria-extrabold text-5xl;
+  }
+}
