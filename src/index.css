@@ -30,7 +30,9 @@
   --font-geometria-bold: "Geometria-Bold", sans-serif;
   --font-geometria-extrabold: "Geometria-ExtraBold", sans-serif;
   --color-primary: #363b5d;
-  --color-secondary: #c5d5e6;
+  --color-secondary-100: #f3f7fa;
+  --color-secondary-200: #c5d5e6;
+  --color-secondary-300: #a1a8af;
   --color-accent: #9c5d9a;
   --color-background: #8094b3;
 }
@@ -42,5 +44,13 @@
 
   h1 {
     @apply font-geometria-extrabold text-5xl;
+  }
+
+  p {
+    @apply text-xs;
+  }
+
+  button {
+    @apply cursor-pointer;
   }
 }
