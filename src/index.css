@@ -46,7 +46,7 @@
     @apply font-geometria-extrabold text-3xl md:text-5xl text-center;
   }
   h3 {
-    @apply font-geometria;
+    @apply font-geometria text-center;
   }
   h4 {
     @apply text-sm text-secondary-300 mb-2;

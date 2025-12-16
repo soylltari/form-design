@@ -6,9 +6,17 @@ interface InputProps {
   type: string;
   value: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  error?: string;
 }
 
-const Input = ({ label, id, type = "text", value, onChange }: InputProps) => {
+const Input = ({
+  label,
+  id,
+  type = "text",
+  value,
+  onChange,
+  error,
+}: InputProps) => {
   return (
     <div className="flex flex-col mb-4">
       {label && (
@@ -23,8 +31,15 @@ const Input = ({ label, id, type = "text", value, onChange }: InputProps) => {
         name={id}
         value={value}
         onChange={onChange}
-        className="w-full px-4 py-2 border-0 bg-secondary-100 rounded-sm focus:outline-none focus:ring-2 focus:ring-accent transition duration-150 ease-in-out"
+        className={`w-full px-4 py-2 border-2 bg-secondary-100 rounded-sm focus:outline-none transition-all
+          ${
+            error
+              ? "border-red-500 focus:ring-2 focus:ring-red-200"
+              : "border-transparent focus:ring-2 focus:ring-accent"
+          }
+        `}
       />
+      {error && <span className="text-red-500 text-[10px] mt-1">{error}</span>}
     </div>
   );
 };

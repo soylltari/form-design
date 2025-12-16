@@ -1,4 +1,3 @@
-import React from "react";
 import { helpTypeButtons } from "./data";
 
 export default function HelpTypeSection() {
