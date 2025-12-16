@@ -8,7 +8,6 @@ type FormErrors = {
 };
 
 export default function Form() {
-  const personType = "individual";
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -22,8 +21,8 @@ export default function Form() {
     zipCode: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
-
   const paymentRef = useRef<PaymentSectionHandle>(null);
+  const personType = "individual";
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -86,7 +85,10 @@ export default function Form() {
 
   return (
     <>
-      <button className="absolute text-xl md:text-3xl top-5 right-1/8 md:right-1/6">
+      <button
+        className="absolute text-xl md:text-3xl top-5 right-1/8 md:right-1/6"
+        aria-label="Закрити форму"
+      >
         ✕
       </button>
 
@@ -98,6 +100,7 @@ export default function Form() {
         <div className="mt-5">
           <button
             type="button"
+            aria-pressed={personType === "individual"}
             className="text-xs px-3 py-1.5 rounded-l-sm border-2 border-primary bg-primary text-white"
           >
             Фіз. особа

@@ -1,4 +1,4 @@
-import React, { type ChangeEvent } from "react";
+import { type ChangeEvent } from "react";
 
 interface InputProps {
   label: string;
@@ -31,6 +31,8 @@ const Input = ({
         name={id}
         value={value}
         onChange={onChange}
+        aria-invalid={!!error}
+        aria-describedby={error ? `${id}-error` : undefined}
         className={`w-full px-4 py-2 border-2 bg-secondary-100 rounded-sm focus:outline-none transition-all
           ${
             error
@@ -39,7 +41,11 @@ const Input = ({
           }
         `}
       />
-      {error && <span className="text-red-500 text-[10px] mt-1">{error}</span>}
+      {error && (
+        <span role="alert" className="text-red-500 text-[10px] mt-1">
+          {error}
+        </span>
+      )}
     </div>
   );
 };

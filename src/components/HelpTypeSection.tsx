@@ -9,6 +9,7 @@ export default function HelpTypeSection() {
           <button
             type="button"
             key={id}
+            aria-pressed={isActive}
             className="group w-full h-full md:w-auto flex flex-col sm:flex-row items-center sm:justify-start justify-center gap-3 md:gap-4 focus:outline-none transition-all"
           >
             <div
@@ -23,9 +24,9 @@ export default function HelpTypeSection() {
             >
               <Icon
                 title={label}
+                aria-hidden="true"
                 className={`
                     w-8 h-8 transition-all
-                    
                     ${
                       isActive
                         ? "text-white"

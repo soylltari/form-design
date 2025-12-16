@@ -18,7 +18,7 @@ export interface PaymentSectionHandle {
   };
 }
 
-const PaymentSection = forwardRef<PaymentSectionHandle>((props, ref) => {
+const PaymentSection = forwardRef<PaymentSectionHandle>((_props, ref) => {
   const [cardParts, setCardParts] = useState(["", "", "", ""]);
   const [expiry, setExpiry] = useState("");
   const [cvc, setCvc] = useState("");
@@ -112,12 +112,16 @@ const PaymentSection = forwardRef<PaymentSectionHandle>((props, ref) => {
                 <button
                   type="button"
                   key={method.id}
+                  aria-pressed={isActive}
                   className={`
                 p-2 h-24 rounded-lg flex flex-col items-center justify-end transition-all
                 ${isActive ? "bg-accent" : "bg-secondary-200 hover:bg-accent"}
               `}
                 >
-                  <div className="mb-auto pt-3 flex items-center justify-center">
+                  <div
+                    aria-hidden="true"
+                    className="mb-auto pt-3 flex items-center justify-center"
+                  >
                     {method.Visual}
                   </div>
                   <p className="text-white font-geometria text-[10px] ">
@@ -148,6 +152,9 @@ const PaymentSection = forwardRef<PaymentSectionHandle>((props, ref) => {
                   value={part}
                   onChange={(e) => handleCardPartChange(index, e.target.value)}
                   onKeyDown={(e) => handleCardKeyDown(index, e)}
+                  aria-label={`Цифри карти від ${index * 4 + 1} до ${
+                    (index + 1) * 4
+                  }`}
                   className={`
                     w-full bg-secondary-100 rounded-md py-1 md:py-2 md:px-2 text-center 
                     focus:outline-none focus:ring-2 transition-all
@@ -206,7 +213,7 @@ const PaymentSection = forwardRef<PaymentSectionHandle>((props, ref) => {
               </div>
             </div>
             {(errors.cardNumber || errors.expiry || errors.cvc) && (
-              <div className="mt-1 text-red-500 text-[10px]">
+              <div role="alert" className="mt-1 text-red-500 text-[10px]">
                 Перевірте правильність введених даних
               </div>
             )}
